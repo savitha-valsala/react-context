@@ -20,7 +20,7 @@ function Sildebar(){
        )
 
     });
-    return(<div className="sticky top=0 flex flex-col overflow-y-scroll">
+    return(<div className="sticky top=0 grid grid-cols ">
         {renderedLinks}
         
     </div>)

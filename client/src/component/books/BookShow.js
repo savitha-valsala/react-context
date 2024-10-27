@@ -1,5 +1,7 @@
 import {useState} from "react";
 import BookEdit from "./BookEdit";
+import { GoPencil } from "react-icons/go";
+import { GoTrash } from "react-icons/go";
 function BookShow({book, onDelete, onEdit}){
     const [editShow, setEditShow] = useState(false);
     const handleClick = ()=>{
@@ -11,18 +13,23 @@ function BookShow({book, onDelete, onEdit}){
     const handleSubmit = ()=>{
         setEditShow(false);
     }
-    let content =<h4>{book.title}</h4>;
+    let content =<div className="text-sm italic font-bold text-cyan-700 p-1">{book.title}</div>;
     if(editShow){
         content = <BookEdit onSubmit={handleSubmit} book={book} onEdit={onEdit}/>
     }
-    return (<div className="book-show">
-        <img alt="images" src={`http://picsum.photos/seed/${book.id}/200/200`}/>
-         <div>{content}</div>
+    return (
+        <div className="border-2 p-2">             
 
-        <div className="actions">
-            <button className="edit" onClick={handleEdit}>Edit</button>
-            <button className="delete" onClick={handleClick}>Delete</button>
-        </div>
+                <div className="grid grid-cols-5 p-2">
+                   <div className="shadow-xl"> 
+                        <button onClick={handleEdit}><GoPencil /></button>
+                    </div>
+                   <div className="shadow-xl">
+                     <button  onClick={handleClick}><GoTrash /></button> 
+                    </div> 
+                </div>
+                <img alt="images" src={`http://picsum.photos/seed/${book.id}/200/200`}/>
+                <div>{content}</div>
     </div>)
 }
 export default BookShow;

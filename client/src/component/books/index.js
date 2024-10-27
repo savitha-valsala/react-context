@@ -52,10 +52,20 @@ function App(){
     }
 
     return (
-    <div className="App">
-        <h3>Reading List</h3>
-        <BookList book={book} onDelete={deleteBook}  onEdit={editBookById} />
-        <BookCreate onClick={createBook} />
+    <div>
+        <div className="grid grid-flow-row auto-rows-max">
+           
+            <div className="p-2 shadow-lg">
+                  <BookCreate onClick={createBook} />                  
+            </div>
+            <div className="pt-5">
+                  <BookList book={book} onDelete={deleteBook}  onEdit={editBookById} />  
+            </div>
+
+        </div>
+        <h3></h3>
+        
+       
     </div>
     );
 }

@@ -7,7 +7,7 @@ const {count, incrementCount} = useContext(Context.Book);
         return <BookShow key={bk.id} book={bk} onDelete={onDelete} onEdit={onEdit}/>
 
     });
-    return (<div className="book-list">{count}
+    return (<div className="grid grid-cols-4 gap-2">
     {/* <button onClick={incrementCount}>click me</button> */}
      {booklist} 
       </div>)
