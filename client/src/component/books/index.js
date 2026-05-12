@@ -9,9 +9,10 @@ function App(){
 
     const fetchBooks =async()=>{
       const response = await booksApi.get();
+      console.log(response.data);
       setBook(response.data);
     }
-    //useEffect(()=>{
+  //  useEffect(()=>{
         fetchBooks();
    // },[setBook]);
     const deleteBook = async(id)=>{
